@@ -1,0 +1,41 @@
+<h1>In and Out Burger</h1>
+
+<h2>Best Burgers in California!</h2>
+
+<ul>
+    {{#each burger}}
+    {{#unless this.devour}}
+    <li>
+        {{this.name}}
+
+        <form action= "burgers/update/{{this.id}}?_method=PUT" method="POST">
+        <input type= "hidden" name="devour" value="true">
+        <button type= "submit">IN AND OUT TIME!</button>
+        </form>
+
+        {{> burgers/move-burger}}
+    </li>
+    {{/unless}}
+    {{/each}}
+</ul>
+
+<h2>Burgers that need to be devoured!</h2>
+
+<ul>
+    {{#each burgers}}
+    {{#if this.devour}}
+    <li>
+        {{this.name}}
+        <form action>="burgers/update/{{this.id}}?_method=PUT" method ="POST">
+        <input type="hidden" name="devour" value="false">
+        <button type= "submit">Devour!</button>
+        </form>
+        </li>
+    {{/if}}
+{{/each}}
+</ul>
+
+<h2>Add a Burger</h2>
+<form class="create-update-form" action="burgers/create" method="POST">
+
+<div class="form-group"
