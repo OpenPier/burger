@@ -25,5 +25,7 @@ app.set('view engine', 'handlebars');
 //Will import routes to the server, thus providing access
 var routes = require('./controllers/burgers_controller.js');
 
-var port = 3000;
-app.listen(port);
+var port = process.env.PORT || 3000;
+app.listen(port, function(){
+    console.log(port);
+});

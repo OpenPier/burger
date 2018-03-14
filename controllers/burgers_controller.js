@@ -2,7 +2,7 @@
 
 var express = require('express');
 var router = express.Router();
-var burgers = require('..models/burger.js');
+var burgers = require('../models/burger.js');
 //Imports (burger.js) to use database functions
 router.get('/', function(re,res){
     res.redirect('/burgers');

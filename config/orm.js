@@ -30,7 +30,7 @@ var orm = {
     all: function (tableInput, cb) {
         //the query string should return all rows. I don't 
         //I don't understand why it is showing up as a bug
-        var queryString = 'SELECT * FROM ' + tableInput ';';
+        var queryString = 'SELECT * FROM ' + tableInput + ';';
         //Will perform the database query
         connection.query(queryString, function (err, result){
 
