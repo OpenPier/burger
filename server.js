@@ -4,13 +4,13 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 
-var app = express ();
+var app = express();
 
 //"public directory in the application directory for the app"//
-app.use(express.static(process.cwd() + '/public'));
+app.use(express.static('public'));
 //
 app.use (bodyParser.urlencoded({
-    extended: false
+    extended: true
 }));
 
 //Override with POST 
@@ -24,6 +24,7 @@ app.engine("handlebars", exphbs({
 app.set('view engine', 'handlebars');
 //Will import routes to the server, thus providing access
 var routes = require('./controllers/burgers_controller.js');
+app.use("/", routes);
 
 var port = process.env.PORT || 3000;
 app.listen(port, function(){
