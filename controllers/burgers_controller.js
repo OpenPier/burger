@@ -4,11 +4,11 @@ var express = require('express');
 var router = express.Router();
 var burgers = require('../models/burger.js');
 //Imports (burger.js) to use database functions
-router.get('/', function(re,res){
-    res.redirect('/burgers');
-});
+// router.get('/', function(re,res){
+//     res.redirect('/burgers');
+// });
 //creates routes
-router.get('/burgers', function(reg,res){
+router.get('/', function(reg,res){
     burgers.all(function(data){
         var hbsObject = { burgers: data};
         console.log(hbsObject);
