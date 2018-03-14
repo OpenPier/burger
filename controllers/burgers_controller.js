@@ -9,8 +9,9 @@ var burgers = require('../models/burger.js');
 // });
 //creates routes
 router.get('/', function(reg,res){
+    console.log ("Hello, I'm HEre!")
     burgers.all(function(data){
-        var hbsObject = { burgers: data};
+        var hbsObject = {burgers: data};
         console.log(hbsObject);
         res.render('index', hbsObject);
     });
@@ -27,7 +28,7 @@ router.put('burgers/update/:id', function(req, res){
 
     console.log('condition', condition);
 
-    burger.update({sleepy: req.body.sleepy}, condition, function(){
+    burger.update({devoured: req.body.devoured}, condition, function(){
 
     });
 });
